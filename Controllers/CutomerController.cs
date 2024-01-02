@@ -15,9 +15,9 @@ namespace STMSApi.Controllers
             this.service = service;
         }
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            var data = this.service.GetAll();
+            var data = await this.service.GetAll();
             if (data == null)
             {
                 return NotFound();
