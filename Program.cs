@@ -1,4 +1,9 @@
 
+using Microsoft.EntityFrameworkCore;
+using STMSApi.Container;
+using STMSApi.Repos;
+using STMSApi.Service;
+
 namespace STMSApi
 {
     public class Program
@@ -13,6 +18,10 @@ namespace STMSApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddTransient<ICustomerService, CustomerService>();
+            builder.Services.AddDbContext<LearnDataContext>(o => 
+                o.UseSqlServer(builder.Configuration.GetConnectionString("apicon"))
+            );
 
             var app = builder.Build();
 
