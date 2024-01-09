@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using STMSApi.Data;
 using STMSApi.Models;
 using STMSApi.Models.DTOs;
 
@@ -11,10 +12,12 @@ namespace STMSApi.Controllers
         [HttpGet]
         public IEnumerable<VillaDTO> GetVillas()
         {
-            return new List<VillaDTO> {
-                new VillaDTO { Id = 1, Name = "Pool View"},
-                new VillaDTO { Id = 2, Name = "Alif Mansion"}
-            };
+            return VillaStore.villaList;
+        }
+        [HttpGet("id")]
+        public VillaDTO GetVilla(int id)
+        {
+            return VillaStore.villaList.FirstOrDefault(u => u.Id == id);
         }
     }
 }
