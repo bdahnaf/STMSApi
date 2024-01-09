@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using STMSApi.Models;
+using STMSApi.Models.DTOs;
 
 namespace STMSApi.Controllers
 {
@@ -8,11 +9,11 @@ namespace STMSApi.Controllers
     public class VillaAPIController : ControllerBase
     {
         [HttpGet]
-        public IEnumerable<Villa> GetVillas()
+        public IEnumerable<VillaDTO> GetVillas()
         {
-            return new List<Villa> {
-                new Villa { Id = 1, Name = "Pool View"},
-                new Villa { Id = 2, Name = "Alif Mansion"}
+            return new List<VillaDTO> {
+                new VillaDTO { Id = 1, Name = "Pool View"},
+                new VillaDTO { Id = 2, Name = "Alif Mansion"}
             };
         }
     }
