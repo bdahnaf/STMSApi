@@ -14,7 +14,7 @@ namespace STMSApi.Controllers
         {
             return VillaStore.villaList;
         }
-        [HttpGet("id")]
+        [HttpGet("{id:int}")]
         public VillaDTO GetVilla(int id)
         {
             return VillaStore.villaList.FirstOrDefault(u => u.Id == id);
