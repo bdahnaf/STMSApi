@@ -3,7 +3,7 @@ using STMSApi.Models;
 
 namespace STMSApi.Controllers
 {
-    [Route("api/VillaApi")]
+    [Route("api/[controller]")]
     [ApiController]
     public class VillaAPIController : ControllerBase
     {
