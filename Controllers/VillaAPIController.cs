@@ -76,8 +76,11 @@ namespace STMSApi.Controllers
             VillaStore.villaList.Remove(villa);
             return NoContent();
         }
-        [HttpPut]
-        public IActionResult UpdateVilla(int id, VillaDTO villaDTO)
+        [HttpPut("{id:int}", Name = "UpdateVilla")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public IActionResult UpdateVilla(int id, [FromBody]VillaDTO villaDTO)
         { 
             if (id == 0 || villaDTO == null || id != villaDTO.Id)
             {
