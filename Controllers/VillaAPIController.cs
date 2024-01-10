@@ -90,6 +90,8 @@ namespace STMSApi.Controllers
             }
             villa.Id = id;
             villa.Name = villaDTO.Name;
+            villa.Occupancy = villaDTO.Occupancy;
+            villa.Sqft = villaDTO.Sqft;
             return NoContent();
         }
     }
