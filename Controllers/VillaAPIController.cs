@@ -43,6 +43,11 @@ namespace STMSApi.Controllers
             {
                 return BadRequest(villaDTO);
             }
+            if(VillaStore.villaList.FirstOrDefault(u => u.Name.ToLower() == villaDTO.Name.ToLower()) != null)
+            {
+                ModelState.AddModelError("CustomError", "Name already exists");
+                return BadRequest(ModelState);
+            }
             if (villaDTO.Id > 0)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
