@@ -76,5 +76,21 @@ namespace STMSApi.Controllers
             VillaStore.villaList.Remove(villa);
             return NoContent();
         }
+        [HttpPut]
+        public IActionResult UpdateVilla(int id, VillaDTO villaDTO)
+        { 
+            if (id == 0 || villaDTO == null || id != villaDTO.Id)
+            {
+                return BadRequest();
+            }
+            var villa = VillaStore.villaList.FirstOrDefault(u => u.Id.Equals(id));
+            if (villa == null)
+            {
+                return NotFound();
+            }
+            villa.Id = id;
+            villa.Name = villaDTO.Name;
+            return NoContent();
+        }
     }
 }
