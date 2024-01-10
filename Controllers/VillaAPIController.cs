@@ -5,7 +5,7 @@ using STMSApi.Models.DTOs;
 
 namespace STMSApi.Controllers
 {
-    [Route("api/VanillaAPI")]
+    [Route("api/VillaAPI")]
     [ApiController]
     public class VillaAPIController : ControllerBase
     {
