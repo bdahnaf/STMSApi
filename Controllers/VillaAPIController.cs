@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using STMSApi.Data;
+using STMSApi.Migrations;
 using STMSApi.Models;
 using STMSApi.Models.DTOs;
 
@@ -32,7 +33,7 @@ namespace STMSApi.Controllers
             {
                 return BadRequest();
             }
-            var villa = VillaStore.villaList.FirstOrDefault(u => u.Id == id);
+            var villa = _dbContext.Villas.FirstOrDefault(u => u.Id == id);
             if(villa == null)
             {
                 return NotFound();
@@ -49,7 +50,7 @@ namespace STMSApi.Controllers
             {
                 return BadRequest(villaDTO);
             }
-            if(VillaStore.villaList.FirstOrDefault(u => u.Name.ToLower() == villaDTO.Name.ToLower()) != null)
+            if(_dbContext.Villas.FirstOrDefault(u => u.Name.ToLower() == villaDTO.Name.ToLower()) != null)
             {
                 ModelState.AddModelError("CustomError", "Name already exists");
                 return BadRequest(ModelState);
@@ -58,8 +59,12 @@ namespace STMSApi.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
-            villaDTO.Id = VillaStore.villaList.OrderByDescending(u => u.Id).FirstOrDefault().Id + 1;
-            VillaStore.villaList.Add(villaDTO);
+            Villa model = new()
+            {
+                ImageUrl = villaDTO.ImageUrl,
+                Name = 
+            };
+            _dbContext.Villas.Add(villaDTO);
             return CreatedAtRoute("GetVilla", new { id = villaDTO.Id }, villaDTO);
         }
 
