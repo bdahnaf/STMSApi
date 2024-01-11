@@ -9,11 +9,17 @@ namespace STMSApi.Controllers
     [ApiController]
     public class VillaAPIController : ControllerBase
     {
+        private readonly ApplicationDbContext _dbContext;
+
+        public VillaAPIController(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult<IEnumerable<VillaDTO>> GetVillas()
         {
-            return Ok(VillaStore.villaList);
+            return Ok(_dbContext.Villas.ToList());
         }
         [HttpGet("{id:int}", Name = "GetVilla")]
         [ProducesResponseType(StatusCodes.Status200OK)]
