@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using STMSApi.Data;
 
@@ -11,9 +12,11 @@ using STMSApi.Data;
 namespace STMSApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240111052949_SeedVillaTable")]
+    partial class SeedVillaTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,7 +73,7 @@ namespace STMSApi.Migrations
                         {
                             Id = 1,
                             Amenity = "Parking, Security etc.",
-                            CreatedDateTime = new DateTime(2024, 1, 11, 11, 30, 49, 660, DateTimeKind.Local).AddTicks(6281),
+                            CreatedDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Details = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words.",
                             ImageUrl = "https://picsum.photos/300.jpg",
                             Name = "Alif Mansion",
@@ -83,7 +86,7 @@ namespace STMSApi.Migrations
                         {
                             Id = 2,
                             Amenity = "Swimming Pool, Security etc.",
-                            CreatedDateTime = new DateTime(2024, 1, 11, 11, 30, 49, 660, DateTimeKind.Local).AddTicks(6296),
+                            CreatedDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Details = "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum",
                             ImageUrl = "https://picsum.photos/200/300.jpg",
                             Name = "Alif Tower",
@@ -96,7 +99,7 @@ namespace STMSApi.Migrations
                         {
                             Id = 3,
                             Amenity = "N/A",
-                            CreatedDateTime = new DateTime(2024, 1, 11, 11, 30, 49, 660, DateTimeKind.Local).AddTicks(6298),
+                            CreatedDateTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Details = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'.",
                             ImageUrl = "https://picsum.photos/100/300.jpg",
                             Name = "Alif Bhaban",
